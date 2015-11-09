@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def create
     # render plain: params[:user].inspect
+    binding.pry
     @user = User.new(user_params)
     if @user.save
      render "tasks/index"
