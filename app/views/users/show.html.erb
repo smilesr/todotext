@@ -1,0 +1,14 @@
+<h1> Welcome <%=@user.username %> </h1>
+
+<table class="table table-striped">
+   <% @user.tasks.each do |task| %>
+  <tr>
+    <td> <%= task.name %></td>
+    <% if task.completion %>
+      <td>  task is done  </td>
+    <% else %>
+      <td> task is not completed </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
