@@ -88,8 +88,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-rails (0.3.4)
-      pry (>= 0.9.10)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -198,7 +196,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
-  pry-rails
+  pry
   rails (= 4.2.1)
   rails_12factor
   resque

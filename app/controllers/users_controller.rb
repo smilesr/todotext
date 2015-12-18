@@ -9,13 +9,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    # render plain: params[:user].inspect
-    binding.pry
     @user = User.new(user_params)
     if @user.save
-     render "tasks/index"
-    else 
-     render :new
+      log_in @user
+      if @user.tasks.first.nil?
+        redirect_to new_task_path
+        # render "tasks/new"
+        return
+      else
+        render :new
+        return
+      end
+    else
+      render :new
+      #error message
     end
   end
 
@@ -24,11 +31,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      ###
+    else
+      render :edit
+      ##error message
+    end
 
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.delete
   end
 
   private

@@ -1,16 +1,32 @@
-<h1> WELCOME
+<h1> Welcome 
   <%= @user.username %>
 </h1>
 <table class="table table-striped">
-   <% @tasks.each do |task| %>
+<thead>
   <tr>
-    <td> <%= task.name %></td>
-    <% if task.completion %>
-      <td>  task is done  </td>
-    <% else %>
-      <td> task is not completed </td>
-    <% end %>
+    <th>TASK</th>
+    <th>DUE DATE</th>
+    <th>COMPLETED?</th>
   </tr>
-  <% end %>
+</thead>
+<tbody>
+   <% @tasks.each do |task| %>
+    <tr>
+      <td> <%= task.content %></td>
+      <td> <%= task.due_date.strftime("%A, %B %-d, %Y") %></td>
+      <td> <%= radio_button_tag(:completion, true) %>
+        <%= label_tag(:completion, "yes") %>
+        <%= radio_button_tag(:completion, false) %>
+        <%= label_tag(:completion, "no  ") %> </td>
+<!--     <% if task.completion %>
+      <td> yes </td>
+    <% else %>
+      <td> no </td>
+    <% end %> -->
+    </tr>
+    <% end %>
+</tbody>
 </table>
+
+<p><%=link_to 'Add New Task', new_task_path %> </p>
 

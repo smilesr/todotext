@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'sessions#new'
+
   get 'signup' => 'users#new'
   resources :tasks
   resources :users

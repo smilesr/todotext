@@ -1,9 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  due_date: 2015-10-18 13:37:38
+fourth:
+  content: "this is the fourth"
+  created_at: <%= 1.year.ago %>
 
-two:
-  name: MyString
-  due_date: 2015-10-18 13:37:38
+third:
+  content: "this is the third"
+  created_at: <%= 5.days.ago %>
+
+most_recent:
+  content: "this is the first"
+  created_at: <%= Time.zone.now %>
+
+second:
+  content: "this is the second"
+  created_at: <%= 4.minutes.ago %>
+
+one:
+  content: "hello"
+  
+# two:
+  # content: MyText
+  # user_id: 
+  # completion: false
+  # due_date: 2015-11-20 13:52:20
