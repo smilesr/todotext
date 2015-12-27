@@ -1,7 +1,9 @@
 class TasksController < ApplicationController
   def index
+    # binding.pry
     @user=User.find(session[:id])
     @tasks=Task.where("user_id=?", @user.id)
+    render
   end
 
   def show
@@ -10,7 +12,6 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
- 
   end
 
   def create
@@ -29,11 +30,25 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.new()
+   # @user = User.find(session[:id])
+   # @task = Task.update_attributes(completed: params[:completed]
   end
 
+
   def destroy
+    @user = User.find(session[:id])
+    @task = @user.tasks.find(params[:id])
+
+    @task.destroy
+   
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+      format.html { redirect_to tasks_path }
+      format.json { head :no_content }
+   #  format.js   { render :layout => false }
+    end
   end
+
 
   private
 
