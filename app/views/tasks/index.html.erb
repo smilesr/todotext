@@ -1,6 +1,6 @@
 <header>
-<h1 class="headline_task"> Welcome 
-  <%= @user.username %>
+<h1 class="headline_task">
+  <%= @user.username %>'s Dashboard
 </h1>
 <%= link_to 'Log out', logout_path, method: :delete %>
 </header>
@@ -20,7 +20,7 @@
       <td> <%= task.content %></td>
       <td> <%= task.due_date.strftime("%A, %B %-d, %Y") %></td>
    
-      <td> <%= link_to 'Destroy', task, method: :delete, :remote => true, :class => 'delete_task' %> </td>
+      <td> <%= link_to 'Did it!', task, method: :delete, :remote => true, :class => 'delete_task' %> </td>
     </tr>
     <% end %>
 </tbody>
