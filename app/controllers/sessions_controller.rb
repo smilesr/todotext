@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       return
     else
       flash.now[:danger] = "Invalid email and/or password"
-      render :create
+      render :new
     end
   end
 

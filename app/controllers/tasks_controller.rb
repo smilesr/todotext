@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   def index
     # binding.pry
-    @user=User.find(session[:id])
+    @user=User.find(session[:user_id])
     @tasks=Task.where("user_id=?", @user.id)
     render
   end
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   def create
 
     @task = Task.new(task_params)
-    @task.user_id = session[:id]
+    @task.user_id = session[:user_id]
     if @task.save
       redirect_to tasks_path
     else
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @user = User.find(session[:id])
+    @user = User.find(session[:user_id])
   end
 
   def update
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
 
 
   def destroy
-    @user = User.find(session[:id])
+    @user = User.find(session[:user_id])
     @task = @user.tasks.find(params[:id])
 
     @task.destroy

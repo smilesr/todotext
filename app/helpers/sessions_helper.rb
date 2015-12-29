@@ -1,5 +1,16 @@
 module SessionsHelper
   def log_in(user)
-    session[:id] = user.id
+    session[:user_id] = user.id
   end
+
+  def current_user
+    binding.pry
+    @current_user ||= @user.find(id: session[:user_id])
+  end
+
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
 end
