@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   post 'twilio/voice' => 'twilio#voice'
-
+  post 'notifications/notify' => 'notifications#notify'
 
   #get 'tasks/index'
 
