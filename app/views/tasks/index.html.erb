@@ -29,6 +29,13 @@
 
 <p><%=link_to 'Add New Task', new_task_path %> </p>
 
+<p><%=link_to 'Text list to phone', '/notifications/notify'%> </p>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
 
 
 
