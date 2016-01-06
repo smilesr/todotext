@@ -1,6 +1,8 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// = require_self
+// = require 'tasks'
 
 input[type="radio"] {
   margin-right: 30px;
@@ -9,14 +11,26 @@ label[for="task_content"] {
   margin-left: 30px;
   color: #66ffff;
 }
+.headline_task {
+  background: gray;
+}
+.newtask_headline {
+  color: #66ffff;
+}
+.logout_butt {
+  background-color: yellow;
+}
 h1 {
   margin-left: 60px;
-  color: #ffff00;
+  color: #66ffff;
 }
 label[for="task_due_date"] {
   margin-left: 30px;
   color: #66ffff;
 }
 input[type="submit"] {
-  color: blue;
+  color: black;
+}
+.new_task {
+  color: #black;
 }

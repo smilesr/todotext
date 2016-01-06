@@ -2,7 +2,7 @@
 <h1 class="headline_task">
   <%= @user.username %>'s Dashboard
 </h1>
-<%= link_to 'Log out', logout_path, method: :delete %>
+<div><%= button_to 'Log out', logout_path, method: :delete, class: "btn btn-warning btn-sm" %></div>
 </header>
 
 <table class="table table-striped">
@@ -18,7 +18,7 @@
 
     <tr class="task-wrapper">
       <td> <%= task.content %></td>
-      <td> <%= task.due_date.strftime("%A, %B %-d, %Y") %></td>
+      <td> <%= task.due_date.strftime("%x") %></td>
    
       <td> <%= link_to 'Did it!', task, method: :delete, :remote => true, :class => 'delete_task' %> </td>
     </tr>
@@ -27,15 +27,12 @@
 </table>
 
 
-<p><%=link_to 'Add New Task', new_task_path %> </p>
 
-<p><%=link_to 'Text list to phone', '/notifications/notify'%> </p>
+<p><%=button_to 'Add New Task', new_task_path, method: :get, form_class: "new_task" %></p>
 
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<p><%=button_to 'Text Tasks', '/notifications/notify', form_class: "text_task" %> </p>
+
+
 
 
 
